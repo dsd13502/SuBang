@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<<<<<<< HEAD
     <string name="app_name">速帮</string>
 
+=======
+    <string name="app_name">开源中国</string>
+    
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
     <string name="main_tab_name_news">综合</string>
     <string name="main_tab_name_tweet">动弹</string>
     <string name="main_tab_name_quick">快速</string>
@@ -14,11 +19,19 @@
     <string name="app_error_message">很抱歉，小屁孩耍脾气啦。<br/>我们会帮你教训一下这个小屁孩！</string>
     <string name="submit_report">打报告去</string>
     
+<<<<<<< HEAD
     <!-- slide menu 侧滑菜单中的-->
     <string name="menu_rss">关注</string><!--订阅-->
     <string name="menu_opensoft">任务平台</string><!--找人帮忙-->
     <string name="menu_blog">博客区</string>
     <string name="menu_quests">你问我答</string> <!--技术问答-->
+=======
+    <!-- slide menu -->
+    <string name="menu_rss">订阅</string>
+    <string name="menu_opensoft">开源软件</string>
+    <string name="menu_blog">博客区</string>
+    <string name="menu_quests">技术问答</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
     <string name="menu_setting">设置</string>
     <string name="menu_theme">夜间</string>
     
@@ -60,9 +73,15 @@
     <string name="tip_no_internet">当前没有可用的网络链接</string>
     
     <string name="actionbar_title_news">资讯详情</string>
+<<<<<<< HEAD
     <string name="actionbar_title_blog">市场详情</string><!--博客详情-->
     <string name="actionbar_title_software">任务详情</string><!--软件详情-->
     <string name="actionbar_title_question">问题详情</string> <!--帖子详情-->
+=======
+    <string name="actionbar_title_blog">博客详情</string>
+    <string name="actionbar_title_software">软件详情</string>
+    <string name="actionbar_title_question">帖子详情</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
     <string name="actionbar_title_tweet">动弹详情</string>
     <string name="actionbar_title_event_detail">活动详情</string>
     <string name="actionbar_title_event_location">活动地址</string>
@@ -80,10 +99,17 @@
 	<string name="platform_weichat">微信</string>
 	<string name="platform_weichat_circle">朋友圈</string>
 	<string name="share_title">开源中国分享</string>
+<<<<<<< HEAD
 	<string name="share_title_news">速帮资讯分享</string><!--开源中国咨询分享-->
 	<string name="share_title_blog">速帮市场信息分享</string><!--开源中国博客分享-->
 	<string name="share_title_soft">速帮任务分享</string><!--开源中国软件分享-->
 	<string name="share_title_post">速帮帖子分享</string><!--开源中国帖子分享-->
+=======
+	<string name="share_title_news">开源中国资讯分享</string>
+	<string name="share_title_blog">开源中国博客分享</string>
+	<string name="share_title_soft">开源中国软件分享</string>
+	<string name="share_title_post">开源中国帖子分享</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
 	<string name="tip_start_share">开始分享…</string>
 	<string name="tip_share_done">分享完成</string>
 	
@@ -133,6 +159,7 @@
 	<string name="choose_picture">选择图片</string>
 	<string name="tip_content_empty">内容不能为空</string>
 	<string name="tip_content_too_long">内容太长</string>
+<<<<<<< HEAD
 
 	<!--无侧滑导航栏对应的详细页面的标题-->
 	<string name="actionbar_title_softwarelist">任务平台</string><!--开源软件-->
@@ -142,12 +169,26 @@
 	<string name="actionbar_title_softtweet">任务动弹列表</string><!--软件动弹列表-->
 	<string name="actionbar_title_user_center">用户中心</string>
 	<string name="actionbar_title_user_blog">用户市场列表</string><!--用户博客列表-->
+=======
+	
+	<string name="actionbar_title_softwarelist">开源软件</string>
+	<string name="actionbar_title_comment">评论列表</string>
+	<string name="actionbar_title_questions">技术问答</string>
+	<string name="actionbar_title_tweetpub">弹一弹</string>
+	<string name="actionbar_title_softtweet">软件动弹列表</string>
+	<string name="actionbar_title_user_center">用户中心</string>
+	<string name="actionbar_title_user_blog">用户博客列表</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
 	<string name="actionbar_title_user_favorite">用户收藏</string>
 	<string name="actionbar_title_my_information">我的资料</string>
 	<string name="actionbar_title_my_friends">关注/粉丝</string>
 	<string name="actionbar_title_setting">设置</string>
 	<string name="actionbar_title_setting_notification">新消息提醒</string>
+<<<<<<< HEAD
 	<string name="actionbar_title_about_osc">关于速帮</string>
+=======
+	<string name="actionbar_title_about_osc">关于开源中国</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
 	<string name="actionbar_title_note">便签</string>
 	<string name="actionbar_title_noteedit">编辑便签</string>
 	<string name="actionbar_title_shake">摇一摇</string>
@@ -159,7 +200,11 @@
 	<string name="actionbar_title_same_city">同城</string>
 	
 	<!-- 博客区 -->	
+<<<<<<< HEAD
 	<string name="actionbar_title_blog_area">市场</string> <!--博客区-->
+=======
+	<string name="actionbar_title_blog_area">博客区</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
 	
     <string name="private_message">私信</string>
     <string name="follow_user">关注</string>
@@ -209,7 +254,11 @@
 	<string name="message_delete_tweet">是否删除该动弹?</string>
 	
 	<!-- software detail -->
+<<<<<<< HEAD
 	<string name="software_author">任务发布者者 :</string><!--软件作者-->
+=======
+	<string name="software_author">软件作者 :</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
     <string name="software_license">开源协议 :</string>
     <string name="software_language">开发语言 :</string>
     <string name="software_os">操作系统 :</string>
@@ -250,7 +299,11 @@
 	<string name="double_click_exit">双击退出</string>
 	<string name="loading_more">自动加载\"更多\"</string>
 	<string name="update">检查新版本</string>
+<<<<<<< HEAD
 	<string name="about">关于速帮</string>
+=======
+	<string name="about">关于开源中国</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
 	<string name="feedback">意见反馈</string>
 	<string name="exit">退出</string>
 	<string name="grade">去评分</string>
@@ -286,7 +339,11 @@
 	<string name="tip_report_success">举报成功</string>
 	<string name="tip_report_faile">举报失败</string>
 	
+<<<<<<< HEAD
 	<string name="tip_double_click_exit">再次点击退出速帮</string>
+=======
+	<string name="tip_double_click_exit">再次点击退出开源中国</string>
+>>>>>>> d948fb9e0f1e01647e3168059b54293da8ade765
 	
 	
 	<string name="team_dynamic">团队动态</string>
