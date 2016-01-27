@@ -1,8 +1,8 @@
 package net.oschina.app.ui.empty;
 
-import net.oschina.app.R;
-import net.oschina.app.util.TDevice;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,6 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import net.oschina.app.R;
+import net.oschina.app.util.TDevice;
 
 public class EmptyLayout extends LinearLayout implements
         android.view.View.OnClickListener {// , ISkinUIObserver {
@@ -42,6 +45,21 @@ public class EmptyLayout extends LinearLayout implements
         this.context = context;
         init();
     }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public EmptyLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        this.context = context;
+        init();
+    }
+
+    public EmptyLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr);
+        this.context = context;
+        init();
+    }
+
+
 
     private void init() {
         View view = View.inflate(context, R.layout.view_error_layout, null);

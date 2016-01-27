@@ -2,7 +2,6 @@ package net.oschina.app.api;
 
 import android.content.Context;
 import android.util.Log;
-import cz.msebera.android.httpclient.client.params.ClientPNames;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -12,6 +11,8 @@ import net.oschina.app.AppContext;
 import net.oschina.app.util.TLog;
 
 import java.util.Locale;
+
+import cz.msebera.android.httpclient.client.params.ClientPNames;
 
 public class ApiHttpClient {
 
@@ -53,6 +54,7 @@ public class ApiHttpClient {
     public static void get(String partUrl, RequestParams params,
                            AsyncHttpResponseHandler handler) {
         client.get(getAbsoluteApiUrl(partUrl), params, handler);
+
         log(new StringBuilder("GET ").append(partUrl).append("&")
                 .append(params).toString());
     }

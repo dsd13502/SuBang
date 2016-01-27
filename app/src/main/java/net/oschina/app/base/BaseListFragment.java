@@ -71,8 +71,12 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     private ParserTask mParserTask;
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_pull_refresh_listview;
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle args = getArguments();
+        if (args != null) {
+            mCatalog = args.getInt(BUNDLE_KEY_CATALOG, 0);
+        }
     }
 
     @Override
@@ -90,12 +94,29 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     }
 
     @Override
-    public void onCreate(android.os.Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Bundle args = getArguments();
-        if (args != null) {
-            mCatalog = args.getInt(BUNDLE_KEY_CATALOG, 0);
+    public void onResume() {
+        super.onResume();
+        if (onTimeRefresh()) {
+            onRefresh();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        mStoreEmptyState = mErrorLayout.getErrorState();
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        cancelReadCacheTask();
+        cancelParserTask();
+        super.onDestroy();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_pull_refresh_listview;
     }
 
     @Override
@@ -138,19 +159,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         if (mStoreEmptyState != -1) {
             mErrorLayout.setErrorType(mStoreEmptyState);
         }
-    }
-
-    @Override
-    public void onDestroyView() {
-        mStoreEmptyState = mErrorLayout.getErrorState();
-        super.onDestroyView();
-    }
-
-    @Override
-    public void onDestroy() {
-        cancelReadCacheTask();
-        cancelParserTask();
-        super.onDestroy();
     }
 
     protected abstract ListBaseAdapter<T> getListAdapter();
@@ -267,14 +275,6 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
      */
     protected long getAutoRefreshTime() {
         return 12 * 60 * 60;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (onTimeRefresh()) {
-            onRefresh();
-        }
     }
 
     protected void sendRequestData() {}

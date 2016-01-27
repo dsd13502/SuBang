@@ -26,12 +26,14 @@ dependencies {
     compile project(':social_sdk_library_project')
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.github.chrisbanes.photoview:library:1.2.3'
+    //网络请求库
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.jakewharton:butterknife:6.1.0'
+    //网络图片加载库
     compile 'org.kymjs.kjframe:kjframe:2.6'
     compile 'com.networkbench.newlens.agent.android:nbs.newlens.agent:2.2.7'
-    compile 'com.google.zxing:core:3.2.0'
     //二维码库
+    compile 'com.google.zxing:core:3.2.0'
     compile 'com.joanzapata.android:android-iconify:1.0.9'
     compile 'com.makeramen:roundedimageview:2.1.1'
 }

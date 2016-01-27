@@ -31,7 +31,7 @@ public class AppStart extends Activity {
         super.onCreate(savedInstanceState);
         // 防止第三方跳转时出现双实例--->从其他软件中启动本项目时防止双实例。
         Activity aty = AppManager.getActivity(MainActivity.class);//AppManager 
-                                             //用来帮忙管理activity的finish和start的栈。
+                                                             //用来帮忙管理activity的finish和start的栈。
         if (aty != null && !aty.isFinishing()) { 
             finish();//如果MainActivity存在并且还没有结束，就结束他
         }
@@ -40,7 +40,8 @@ public class AppStart extends Activity {
         final View view = View.inflate(this, R.layout.app_start, null);
         setContentView(view); 
         // 渐变展示启动屏
-        AlphaAnimation aa = new AlphaAnimation(0.5f, 1.0f); //AlphaAnimation （阿尔法）淡入淡出动画，就是渐变动画
+        AlphaAnimation aa = new AlphaAnimation(0.5f, 1.0f); // AlphaAnimation （阿尔法）淡入淡出动画，
+                                                          // 就是渐变动画,从半透明到不透明
         aa.setDuration(800);//动画保持时间。。。。
         view.startAnimation(aa);
         aa.setAnimationListener(new AnimationListener() {
@@ -58,10 +59,11 @@ public class AppStart extends Activity {
     }
 
     @Override
-    protected void onResume() { //从后台调入前台的入口，常常用来刷新数据
+    protected void onResume() { //从后台调入前台的入口，常常用来刷新数据，此处用来在升级时清楚缓存
         super.onResume();
 
-        int cacheVersion = PreferenceHelper.readInt(this, "first_install", //PreferenceHelper首选项
+        int cacheVersion = PreferenceHelper.readInt(this, "first_install", //PreferenceHelper
+                                                                     //-->
                 "first_install", -1);
         int currentVersion = TDevice.getVersionCode();
         if (cacheVersion < currentVersion) {

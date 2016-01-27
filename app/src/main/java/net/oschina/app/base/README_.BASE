@@ -1,4 +1,0 @@
-# 将系统提供的类进行【重写并扩充】，形成以后重复使用的【基本类】
-## BaseFragment --> 继承 Fragment
-
-### BaseViewPagerFragment --> 继承 BaseFragment

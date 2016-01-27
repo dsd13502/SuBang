@@ -39,6 +39,11 @@ public class HackyViewPager extends ViewPager {
         isLocked = false;
     }
 
+    public HackyViewPager(Context context, AttributeSet attrs, int defStyle)
+    {
+        super(context, attrs);
+        isLocked = false;
+    }
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         if (!isLocked) {

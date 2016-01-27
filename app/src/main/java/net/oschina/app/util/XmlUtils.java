@@ -1,17 +1,17 @@
 package net.oschina.app.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import net.oschina.app.AppException;
-
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DoubleConverter;
 import com.thoughtworks.xstream.converters.basic.FloatConverter;
 import com.thoughtworks.xstream.converters.basic.IntConverter;
 import com.thoughtworks.xstream.converters.basic.LongConverter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+
+import net.oschina.app.AppException;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * xml解析工具类
@@ -38,11 +38,14 @@ public class XmlUtils {
         XStream xmStream = new XStream(new DomDriver("UTF-8"));
         // 设置可忽略为在javabean类中定义的界面属性
         xmStream.ignoreUnknownElements();
+
         xmStream.registerConverter(new MyIntCoverter());
         xmStream.registerConverter(new MyLongCoverter());
         xmStream.registerConverter(new MyFloatCoverter());
         xmStream.registerConverter(new MyDoubleCoverter());
+        //解析的类型为 type 类型
         xmStream.processAnnotations(type);
+
         T obj = null;
         try {
             obj = (T) xmStream.fromXML(is);
@@ -84,6 +87,10 @@ public class XmlUtils {
         }
     }
 
+    /**
+     * im_dsd
+     *自定义数据类型解析器
+     */
     private static class MyLongCoverter extends LongConverter {
         @Override
         public Object fromString(String str) {

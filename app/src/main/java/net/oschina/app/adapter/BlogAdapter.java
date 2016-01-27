@@ -43,9 +43,17 @@ public class BlogAdapter extends ListBaseAdapter<Blog> {
         }
     }
 
+    /**
+     * im_dsd
+     *
+     */
     @Override
     protected View getRealView(int position, View convertView, ViewGroup parent) {
         ViewHolder vh = null;
+        /**
+         * listView 第一次实例化，或者listView的缓存中没有数据时，就引入新得layout
+         * 如果不是则从缓冲池中读取item
+         */
         if (convertView == null || convertView.getTag() == null) {
             convertView = getLayoutInflater(parent.getContext()).inflate(
                     R.layout.list_cell_news, null);
@@ -56,8 +64,13 @@ public class BlogAdapter extends ListBaseAdapter<Blog> {
         }
 
         Blog blog = mDatas.get(position);
-
+        //设置 iv_tip 的可见度-->为可见
         vh.tip.setVisibility(View.VISIBLE);
+
+        /**
+         *
+         */
+
         if (blog.getDocumenttype() == Blog.DOC_TYPE_ORIGINAL) {
             vh.tip.setImageResource(R.drawable.widget_original_icon);
         } else {

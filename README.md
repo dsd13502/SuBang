@@ -1,10 +1,7 @@
-# OSChina Android [客户端](http://www.oschina.net/app/)
+# 速帮 Android [客户端](http://www.oschina.net/app/)
 
 ##写在前面的话
-从2.3版本开始，项目已经完成了gradle化，完全迁移到了android studio，如果想使用eclipse进行该项目的学习，可以clone [tag v2.2.1](http://git.oschina.net/oschina/android-app/tree/v2.2.1/)，不过需要注意的是，eclipse需要按照开发环境中提到的：进行butterknife注解设置
-
-##开发环境
-由于使用了较多的Eclipse项目Library，项目目前使用的是Eclipse。需要提示的是，由于butterknife注解特性，Eclipse需要开启注解功能，详细方法参考[这里](http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0102/2247.html)。对于使用Android Studio的开发者，可能你们需要等待一段时间，项目目前正在Gradle化。当然，我们也欢迎由你来转换项目并通过PullRequest提交给我们，充分发挥社区化协作的优势。  
+本项目是基与开源中国 Android 客户端搭建的，主要用于自我学习。发现了我在知识上有很多不足之处，还是要好好学习滴。
 
 ##项目简述
 1. 底部导航  
@@ -22,27 +19,15 @@
 
 ##依赖包介绍
 1. jar包依赖  
-  * 网络请求库 **android-async-http** ：http://loopj.com/android-async-http/  
+  * 网络请求库 **android-async-http** http://loopj.com/android-async-http 
   * 注解绑定控件 **butterknife** http://jakewharton.github.io/butterknife/  
   * 网络图片加载库 **KJFrameForAndroid** http://git.oschina.net/kymjs/KJFrameForAndroid  
   * XML解析库 **xstream** http://xstream.codehaus.org/  
 2. 源码依赖  
   * **PhotoView-library** ：用于图片预览界面展示 
   * **UmengShareLib** ：用于分享到第三方平台
+  
+## 各文件夹介绍
 
-##开源协议
- Copyright (C) 2014, The OSChina Open Source Project
 
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+klin Street, Fifth Floor, Boston, MA 02110-1301 USA.

@@ -25,6 +25,10 @@ import net.oschina.app.widget.TweetTextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 实现下拉刷新，
+ * * @param <T>
+ */
 public class ListBaseAdapter<T extends Entity> extends BaseAdapter {//BaseAdapter 详细见 有道云笔记
                                     // Entity  实体
     /*
@@ -47,11 +51,11 @@ public class ListBaseAdapter<T extends Entity> extends BaseAdapter {//BaseAdapte
 
     private LayoutInflater mInflater; //是用来找res/layout/下的xml布局文件的 详见 有道云
 
-    /*获取布局文件*/
+    /*获取布局文件,防止多实例化*/
     protected LayoutInflater getLayoutInflater(Context context) {
         if (mInflater == null) {
             mInflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);//？？？
         }
         return mInflater;
     }
@@ -68,7 +72,7 @@ public class ListBaseAdapter<T extends Entity> extends BaseAdapter {//BaseAdapte
         return this.state;
     }
 
-    protected ArrayList<T> mDatas = new ArrayList<T>();
+    protected ArrayList<T>  mDatas = new ArrayList<T>();
 
     public ListBaseAdapter() {
         _loadmoreText = R.string.loading;
@@ -122,7 +126,7 @@ public class ListBaseAdapter<T extends Entity> extends BaseAdapter {//BaseAdapte
 
     public void setData(ArrayList<T> data) {
         mDatas = data;
-        notifyDataSetChanged();
+        notifyDataSetChanged();//在修改适配器绑定的数组后，不用重新刷新Activity，通知Activity更新ListView
     }
 
     public ArrayList<T> getData() {
