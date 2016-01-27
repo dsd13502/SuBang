@@ -4,3 +4,4 @@
 post -> 向服务器请求
 get -> 获得数据
 
+[UserAgent & post & get ]http://blog.csdn.net/leimengyuanlian/article/details/9107793

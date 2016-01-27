@@ -5,7 +5,9 @@ import net.oschina.app.AppContext;
 public class ApiClientHelper {
 	
 	/**
-	 * 获得请求的服务端数据的userAgent
+	 * 获得请求的服务端数据的userAgent（用户代理）
+	 * im_dsd
+	 * 统计客户端数量
 	 * @param appContext
 	 * @return
 	 */

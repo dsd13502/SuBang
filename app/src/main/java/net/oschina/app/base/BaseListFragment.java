@@ -68,6 +68,8 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
     protected Result mResult;
 
     private AsyncTask<String, Void, ListEntity<T>> mCacheTask;
+
+    //解析数据任务的状态
     private ParserTask mParserTask;
 
     @Override
@@ -291,6 +293,10 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
+    /**
+     * im_dsd
+     * 缓存任务，readList（）将使用继承他的类中重写的readList方法执行
+     */
     private class CacheTask extends AsyncTask<String, Void, ListEntity<T>> {
         private final WeakReference<Context> mContext;
 
@@ -321,6 +327,10 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
+    /**
+     * im_dsd
+     * 保存缓存
+     */
     private class SaveCacheTask extends AsyncTask<Void, Void, Void> {
         private final WeakReference<Context> mContext;
         private final Serializable seri;
@@ -339,15 +349,22 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
+    /**
+     * 向服务器请求，相应的实体内容在 responseBody（HTTP）
+     */
     protected AsyncHttpResponseHandler mHandler = new AsyncHttpResponseHandler() {
 
         @Override
         public void onSuccess(int statusCode, Header[] headers,
                 byte[] responseBytes) {
+            //（第一次打开 清除缓存之后）如果列表中没有数据并且可以刷新时候，
+            // 记录这次刷新时间
             if (mCurrentPage == 0 && needAutoRefresh()) {
                 AppContext.putToLastRefreshTime(getCacheKey(),
                         StringUtils.getCurTimeStr());
             }
+            //如果 fragment 正在进入当前 Activiy
+            //置状态为 刷新态
             if (isAdded()) {
                 if (mState == STATE_REFRESH) {
                     onRefreshNetworkSuccess();
@@ -479,12 +496,21 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
+    /**
+     * im_dsd
+     * 杀死解析任务，并将需要解析的数据进行传递
+     * @param data
+     */
     private void executeParserTask(byte[] data) {
         cancelParserTask();
         mParserTask = new ParserTask(data);
         mParserTask.execute();
     }
 
+    /**
+     * im_dsd
+     *撤销解析任务
+     */
     private void cancelParserTask() {
         if (mParserTask != null) {
             mParserTask.cancel(true);
@@ -492,8 +518,13 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
         }
     }
 
+    /**
+     * im_dsd
+     *解析任务，继承异步任务
+     */
     class ParserTask extends AsyncTask<Void, Void, String> {
 
+        //reponseDdate 过程数据
         private final byte[] reponseData;
         private boolean parserError;
         private List<T> list;
@@ -502,9 +533,16 @@ public abstract class BaseListFragment<T extends Entity> extends BaseFragment
             this.reponseData = data;
         }
 
+        /**
+         * 按照继承他的类中重写的 parseList（） 进行解析（XML to bean）
+         * 如果没有解析出来 就从结果中将 result 信息解析出来
+         * @param params
+         * @return
+         */
         @Override
         protected String doInBackground(Void... params) {
             try {
+
                 ListEntity<T> data = parseList(new ByteArrayInputStream(
                         reponseData));
                 new SaveCacheTask(getActivity(), data, getCacheKey()).execute();

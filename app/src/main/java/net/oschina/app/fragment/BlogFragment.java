@@ -36,6 +36,12 @@ public class BlogFragment extends BaseListFragment<Blog> implements
         return new BlogAdapter();
     }
 
+    /**
+     * 有Fragment传递 BUNDLE_BLOG_TYPE 这个Argument 过来，但是谁给的呢？
+     * 不是在另一个Top中的 自己
+     *
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +84,9 @@ public class BlogFragment extends BaseListFragment<Blog> implements
     /**
      * im_dsd
      * 发送数据请求，结果存在 mHandler 中
+     * blogType：
+     * mCurrentPage：
+     * mHandler ：
      */
     @Override
     protected void sendRequestData() {

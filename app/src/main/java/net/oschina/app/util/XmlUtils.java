@@ -43,8 +43,8 @@ public class XmlUtils {
         xmStream.registerConverter(new MyLongCoverter());
         xmStream.registerConverter(new MyFloatCoverter());
         xmStream.registerConverter(new MyDoubleCoverter());
-        //解析的类型为 type 类型
-        xmStream.processAnnotations(type);
+
+        xmStream.processAnnotations(type);// 识别类中的注解
 
         T obj = null;
         try {
@@ -62,11 +62,16 @@ public class XmlUtils {
         }
         return obj;
     }
-    
+
     public static <T> T toBean(Class<T> type, byte[] bytes) {
         if (bytes == null) return null;
         return toBean(type, new ByteArrayInputStream(bytes));
     }
+
+    /**
+     * im_dsd
+     *自定义数据类型解析器
+     */
 
     private static class MyIntCoverter extends IntConverter {
 
@@ -87,10 +92,7 @@ public class XmlUtils {
         }
     }
 
-    /**
-     * im_dsd
-     *自定义数据类型解析器
-     */
+
     private static class MyLongCoverter extends LongConverter {
         @Override
         public Object fromString(String str) {

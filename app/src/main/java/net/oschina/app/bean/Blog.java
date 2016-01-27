@@ -13,7 +13,8 @@ public class Blog extends Entity {
 	
 	public final static int DOC_TYPE_REPASTE = 0;//转帖
 	public final static int DOC_TYPE_ORIGINAL = 1;//原创
-	
+
+	// 别名注解，这个别名就是XML文档中的元素名，Java的属性名不一定要与别名一致
 	@XStreamAlias("title")
 	private String title;
 

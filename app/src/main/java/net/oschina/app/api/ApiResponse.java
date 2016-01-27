@@ -2,6 +2,11 @@ package net.oschina.app.api;
 
 import org.json.JSONObject;
 
+
+/**
+ * im_dsd
+ * JSON 但是项目里没有使用过这个类
+ */
 public class ApiResponse {
     protected Object _data;
     protected String _message;
